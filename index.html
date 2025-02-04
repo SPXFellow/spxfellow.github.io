@@ -36,8 +36,8 @@
 							<p>SPX Browser 是由开源社区 SPX Fellow 提供的博文目录浏览器，在这里您可以获取最新的 Minecraft.net 博文，并且阅读部分文章的译文。</p>
 							<p>SPX Fellow 还提供以下服务：</p>
 							<ul>
-							<li><a href="https://github.com/SPXFellow/spxx">SPXX 用户脚本</a>：将 Minecraft.net 的博文进行自动排版为 BBCode 格式。</li>
-							<li><a href="https://crowdin.com/project/spxx/zh-CN">SPXX Bug Center</a>：为新修复的 Minecraft Java 版漏洞提供翻译。</li>
+							<li><a href="https://github.com/SPXFellow/spxx">SPXX 用户脚本</a>：将 Minecraft.net 的博文进行自动排版为 md 格式。</li>
+							<li>【已暂停】<a href="https://crowdin.com/project/spxx/zh-CN">SPXX Bug Center</a>：为新修复的 Minecraft Java 版漏洞提供翻译。</li>
 							<li><a href="https://github.com/SPXFellow/whitepaper">SPXDesgin 白皮书</a>：Minecraft.net 博文的 BBCode 排版方案手册。</li>
 							</ul>
 						</v-container>
@@ -74,14 +74,6 @@
 										}}
 									</v-chip>
 								</v-chip-group>
-								<v-chip-group v-model="statusInput" active-class="primary--text" multiple column>
-									<legend class="v-label pr-2"
-											style="left: 0px; right: auto; position: relative; line-height: 2.38;">
-										<div>文章状态</div>
-									</legend>
-									<v-chip>已翻译</v-chip>
-									<v-chip>未翻译</v-chip>
-								</v-chip-group>
 							</div>
 							<v-card class="mx-3">
 								<v-simple-table height="500px" fixed-header>
@@ -91,7 +83,6 @@
 											<th>时间</th>
 											<th>分类</th>
 											<th>原文</th>
-											<th>译文</th>
 										</tr>
 										</thead>
 										<tbody>
@@ -99,10 +90,6 @@
 											<td>{{ item.published }}</td>
 											<td>{{ item.category || "无" }}</td>
 											<td><a :href="item.link" target="_blank">{{ item.title }}</a></td>
-											<td><a v-if="item.isTranslated" :href="item.trLink" target="_blank">by @{{
-													item.translator
-												}}</a>
-												<span v-else>N/A</span></td>
 										</tr>
 										</tbody>
 									</template>
